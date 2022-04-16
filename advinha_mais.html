@@ -1,0 +1,87 @@
+<meta charset="UTF-8">
+
+<h4>Adivinhe um número entre 1 e 9:</h4>
+
+<input/>
+<button>Clique aqui!</button>
+
+
+<script>
+	//numero aleatorio entre 1 e 9
+	function sorteia() {
+		
+		var numeroAleatorio = Math.round(Math.random() *10);
+
+		if(numeroAleatorio == 10 || numeroAleatorio == 0) {
+		
+			numeroAleatorio = Math.round(Math.random() *10);
+
+		}	
+	
+		return numeroAleatorio;
+		
+	}
+	function sorteiaNumeros(quantidade) {
+		
+		var segredos = [];
+		
+		for(var i = 0; i < quantidade; i++) {
+			
+			var numeroAleatorio = sorteia();
+			var achou = 0;
+			
+			for(var i =0; i < segredos.length; i++) {
+				
+				if(segredos[i] == numeroAleatorio) {
+					
+					achou = 1;
+					break;
+					
+				}
+			}
+		
+			if(achou == 0) {
+				
+				segredos.push(numeroAleatorio);
+				
+			}
+		}
+		
+		return segredos;
+		
+	}
+
+	var segredos = sorteiaNumeros(3);
+	
+	var input = document.querySelector("input");
+	input.focus();
+	
+	function verifica() {
+		
+		var acertou = 0;
+		
+		for(var i = 0; i < segredos.length; i++) {	
+			
+			if(input.value == segredos[i]) {
+			
+				alert("VOCÊ ACERTOU!");
+				acertou = 1;
+				break;				
+			}
+		}
+		
+		if(acertou == 0) {
+			
+			alert("VOCÊ ERROU!");
+			
+		}
+		
+		input.value = "";
+		input.focus();
+		
+	}
+	var button = document.querySelector("button");	
+	button.onclick = verifica;
+
+
+</script>
