@@ -27,7 +27,6 @@
 
 		cor = sorteiaCor();
 		
-		
         var x = evento.pageX - tela.offsetLeft;
         var y = evento.pageY - tela.offsetTop;
         pincel.fillStyle = cor;
@@ -40,13 +39,15 @@
 
     tela.onclick = desenhaCirculo;
 	
-    function mudaCor() {
+	function mudaCor() {
 		
 		cor = sorteiaCor();
 		pincel.fillStyle = cor;
-		pincel.fill();
-        return false;
+        pincel.fill();       
+
+        return false; 
     }
 
     tela.oncontextmenu = mudaCor;
+
 </script>
