@@ -1,2 +1,2 @@
 # JavasScript
-excercises
+exercises
